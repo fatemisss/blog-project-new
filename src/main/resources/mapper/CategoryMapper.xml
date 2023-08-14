@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.blog.mapper.CategoryMapper">
+<!--List<Category> selectList();-->
+    <select id="selectList" resultType="com.atguigu.blog.entity.Category">
+        select * from Category
+    </select>
+    <!--Article getArticle(Long id);-->
+    <select id="getCategory" resultType="com.atguigu.blog.entity.Category">
+        select * from Category where  cid = #{cid}
+    </select>
+    <!--    void updateCategory(Category category);-->
+    <update id="updateCategory" parameterType="com.atguigu.blog.entity.Category">
+        update category set  cname=#{cname} where cid=#{cid}
+    </update>
+    <!--void insertCategory(Category category);-->
+    <insert id="insertCategory" parameterType="com.atguigu.blog.entity.Category">
+        insert into category(cname) values(#{cname})
+    </insert>
+    <!--void DeleteCategory(Long id);-->
+    <delete id="DeleteCategory" parameterType="com.atguigu.blog.entity.Category">
+        delete from category where cid=#{cid}
+    </delete>
+    <!--查询总记录数-->
+    <select id="selectCount" resultType="Long">
+        select count(*) from category
+        <where>
+            <if test="cname!=null and cname!=''">
+                cname = #{cname}
+            </if>
+        </where>
+    </select>
+    <!--条件分页查询-->
+    <select id="pageList" resultType="com.atguigu.blog.entity.Category">
+        select * from category
+        <where>
+            <if test="vo.cname!=null and vo.cname!=''">
+                cname = #{vo.cname}
+            </if>
+        </where>
+        limit #{begin},#{limit}
+    </select>
+</mapper>

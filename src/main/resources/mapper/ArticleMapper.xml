@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.blog.mapper.ArticleMapper">
+    <!--查询数据list集合-->
+    <select id="selectList" resultType="com.atguigu.blog.entity.Article">
+        select * from article
+        <where>
+            <if test="cid != null and cid !=0">
+                cid=#{cid}
+            </if>
+        </where>
+    </select>
+    <!-- Article getArticle(Long id);-->
+    <select id="getArticle" resultType="com.atguigu.blog.entity.Article">
+        select * from article where id = #{id}
+    </select>
+    <!--void addarticle(Article article);-->
+    <insert id="addarticle" >
+        insert into article(title,content,cid,uid) values (#{title},#{content},#{cid},#{uid})
+    </insert>
+    <delete id="deleteArticle">
+        delete from article where id=#{id}
+    </delete>
+    <!--void updateArticle(Article article);-->
+    <update id="updateArticle" parameterType="com.atguigu.blog.entity.Article">
+        update article set title=#{title},content=#{content},cid=#{cid} where id=#{id}
+    </update>
+</mapper>

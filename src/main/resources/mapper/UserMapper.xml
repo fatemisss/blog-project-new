@@ -5,5 +5,16 @@
     <select id="loginUser" resultType="com.atguigu.blog.entity.User">
         select * from user where username=#{username}
     </select>
-
+    <!--void insertUser(User user);-->
+   <insert id="insertUser" parameterType="com.atguigu.blog.entity.User">
+       insert into user(username,password,phone,introduction) values (#{username},#{password},#{phone},#{introduction})
+   </insert>
+    <!--User getUser(Long id);-->
+    <select id="getUser" resultType="com.atguigu.blog.entity.User">
+        select * from user where uid=#{id}
+    </select>
+    <!-- void updateUser(User user);-->
+    <update id="updateUser" parameterType="com.atguigu.blog.entity.User">
+        update user set phone=#{phone},introduction=#{introduction} where uid=#{uid}
+    </update>
 </mapper>

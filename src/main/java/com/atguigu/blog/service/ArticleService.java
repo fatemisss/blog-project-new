@@ -12,4 +12,5 @@ public interface ArticleService {
 
     void deleteArticle(Long id);
     void updateArticle(Article article);
+    List<Article> findArticleById(Integer uid);
 }

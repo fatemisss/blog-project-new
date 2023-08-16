@@ -47,5 +47,11 @@ public class ArticleController {
         return Result.ok();
     }
 
+    @GetMapping("/findArticleByUid/{uid}")
+    public Result findArticleById (@PathVariable Integer uid){
+        List<Article> list = articleService.findArticleById(uid);
+        return Result.ok(list);
+    }
+
 
 }

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
-
 @Controller
 @ResponseBody
 @CrossOrigin
@@ -23,7 +22,7 @@ public class UserController {
         User userExist = userService.login(user);
         if (userExist != null) {
             Map<String, Object> map = new HashMap<>();
-            map.put("name", userExist.getUsername());
+            map.put("username", userExist.getUsername());
             map.put("uid", userExist.getUid());
             return Result.ok(map);
         } else {

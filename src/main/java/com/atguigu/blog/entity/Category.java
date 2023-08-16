@@ -11,6 +11,6 @@ import java.util.Date;
 public class Category {
     private Long cid;
     private String cname; //分类名称
-    private Date create_time;
-    private Date update_time;
+    private Date createTime;
+    private Date updateTime;
 }

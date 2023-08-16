@@ -36,4 +36,9 @@ public class ArticleServiceImpl implements ArticleService {
     public void updateArticle(Article article) {
         articleMapper.updateArticle(article);
     }
+
+    @Override
+    public List<Article> findArticleById(Integer uid) {
+        return articleMapper.findArticleById(uid);
+    }
 }

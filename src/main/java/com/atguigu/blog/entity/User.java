@@ -14,6 +14,6 @@ public class User {
     private String password;//密码
     private String phone;//手机号
     private String introduction;//个人介绍
-    private Date create_time;
-    private Date update_time;
+    private Date createTime;
+    private Date updateTime;
 }

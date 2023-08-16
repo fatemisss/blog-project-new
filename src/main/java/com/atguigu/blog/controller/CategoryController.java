@@ -27,7 +27,7 @@ public class CategoryController {
         return Result.ok(data);
     }
 
-    @PostMapping("queryList")
+    @GetMapping("queryList")
     public Result queryList() {
         List<Category> list = categoryService.selectList();
         return Result.ok(list);
